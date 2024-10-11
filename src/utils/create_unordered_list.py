@@ -9,7 +9,12 @@ def create_unordered_list(n: int) -> list[int]:
     # and inserting each number into a random index in a new list
     unordered_list = []
     for x in initial_list:
-        index = random.randint(0, len(unordered_list)-1)
+        if len(unordered_list) == 0:
+            index = 0 # Index 0 if list is empty
+        else:
+            # Otherwise get a random possible index instead
+            index = random.randint(0, len(unordered_list)-1)
+
         unordered_list.insert(index, x)
 
     return unordered_list
