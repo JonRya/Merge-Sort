@@ -18,3 +18,11 @@ def create_unordered_list(n: int) -> list[int]:
         unordered_list.insert(index, x)
 
     return unordered_list
+
+
+# Tests if the unordered list contains exactly n amount of numbers
+if __name__ == '__main__':
+    n = random.randint(100, 1000)
+    unordered_list = create_unordered_list(n)
+    assert(len(unordered_list) == n)
+    print(f'{unordered_list}\nn = {n}')
