@@ -1,6 +1,3 @@
-from utils import create_unordered_list
-
-
 # Main function
 def merge_sort(unsorted_list: list[int]) -> list[int]:
     # Stop recusion when the unsorted list only has a length of 1
@@ -46,7 +43,11 @@ def merge(left: list[int], right: list[int]) -> list[int]:
 
 # Only for testing
 if __name__ == '__main__':
+    # Create an unsorted list
+    from utils import create_unordered_list
     unsorted = create_unordered_list.create_unordered_list(1000)
+
+    # Test and evaluate the result of the sorting function
     sorted_list = merge_sort(unsorted)
     print(sorted_list)
     assert sorted_list == sorted(unsorted)
