@@ -3,7 +3,14 @@ from utils import create_unordered_list
 
 # Main function
 def merge_sort(unsorted_list: list[int]) -> list[int]:
-    return
+    if len(unsorted_list) == 1:
+        return unsorted_list
+
+    middle: int = len(unsorted_list) // 2
+    left: list[int] = merge_sort(unsorted_list[:middle])
+    right: list[int] = merge_sort(unsorted_list[middle:])
+
+    return merge(left, right)
 
 def merge(left: list[int], right: list[int]) -> list[int]:
     merged: list[int] = []
@@ -30,4 +37,7 @@ def merge(left: list[int], right: list[int]) -> list[int]:
 
 # Only for testing
 if __name__ == '__main__':
-    print(merge([1, 2, 7], [3, 4]))
+    unsorted = create_unordered_list.create_unordered_list(1000)
+    sorted_list = merge_sort(unsorted)
+    print(sorted_list)
+    assert sorted_list == sorted(unsorted)
